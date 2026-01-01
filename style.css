@@ -1,0 +1,430 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+/* ================= STORY SELECTOR ================= */
+
+.story-selector {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: slideUp 0.5s ease-out 0.2s both;
+}
+
+.story-selector h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.story-search {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.story-search:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 8px rgba(102,126,234,0.4);
+}
+
+/* ===== Album-style buttons ===== */
+
+.story-buttons {
+    display: flex;           /* horizontal layout */
+    gap: 15px;               /* space between buttons */
+    overflow-x: auto;        /* enable horizontal scrolling */
+    padding-bottom: 10px;    /* spacing for scrollbar */
+    scroll-behavior: smooth; /* smooth scrolling */
+}
+.story-buttons::-webkit-scrollbar {
+    height: 8px;
+}
+
+.story-buttons::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 4px;
+}
+
+
+.story-btn {
+    display: flex;              /* keep flex layout */
+    flex-direction: column;     /* image on top, title below */
+    align-items: center;        /* center everything */
+    justify-content: flex-start;/* keep consistent spacing */
+    width: 120px;               /* fixed width */
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-sizing: border-box;     /* ensure padding doesn't stretch width */
+}
+
+
+.story-btn img {
+    width: 100px;       /* fixed width */
+    height: 100px;      /* fixed height */
+    object-fit: cover;  /* maintain aspect ratio */
+    border-radius: 8px;
+}
+
+
+
+.story-btn span {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.story-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.story-btn.active {
+    border-color: #f5576c;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.story-btn.active span {
+    color: white;
+}
+
+/* Story Filters */
+.story-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.story-filters select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.story-filters select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 6px rgba(102,126,234,0.4);
+    outline: none;
+}
+
+
+/* ================= MAIN CONTENT ================= */
+
+.main-content {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: slideUp 0.5s ease-out 0.4s both;
+}
+
+/* ================= CONTROLS ================= */
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    display: none;
+}
+
+.play-btn {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.play-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.play-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+}
+
+.speed-control input {
+    width: 100px;
+}
+
+/* ================= STORY CONTENT ================= */
+
+.story-title {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.story-content {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Small image inside story */
+
+.story-img-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.story-img-small {
+    max-width: 60%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.story-img-small:hover {
+    transform: scale(1.02);
+}
+.story-image img {
+    width: 300px;       /* Set uniform width */
+    height: 200px;      /* Set uniform height */
+    object-fit: cover;  /* Crop to fit if aspect ratio differs */
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.story-image img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio on smaller screens */
+}
+
+/* ================= WORD INTERACTION ================= */
+
+.french-word {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.french-word:hover {
+    background-color: #ffeaa7;
+    transform: translateY(-2px);
+}
+
+/* Tooltip */
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2d3436;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-bottom: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #2d3436;
+}
+
+.french-word:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.highlight {
+    background-color: #66ccff !important;
+}
+
+/* ================= ENGLISH TRANSLATION ================= */
+
+.english-translation {
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    padding: 15px;
+    border-radius: 8px;
+    color: #555;
+    font-style: italic;
+    display: none; /* hide by default */
+}
+
+.english-translation h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .story-content {
+        font-size: 1.1rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .play-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .story-img-small {
+        max-width: 100%;
+    }
+    
+}
+
+/* ================= SIMPLE FOOTER ================= */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #ffffffcc; /* slightly transparent white to blend nicely */
+}
+
+footer a {
+    color: #ffffffcc;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff; /* brighten slightly on hover */
+}
+
+
+/* Inline header for story selector */
+.story-selector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Inline author info */
+.story-author-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Small circular photo */
+.author-photo-inline {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+}
+
+/* Author name link */
+.author-name-inline {
+    font-size: 0.9rem;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.author-name-inline:hover {
+    color: #f5576c;
+}

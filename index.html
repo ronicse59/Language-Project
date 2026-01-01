@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Stories - Learn French Through Reading</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 French Stories</h1>
+            <p>Learn French through interactive reading - Hover over words to see translations</p>
+        </header>
+            <div class="story-selector">
+                <div class="story-selector-header">
+                <h2>Choose a Story:</h2>
+                    <div class="story-author-inline">
+                        <a href="https://ronicse59.github.io/profile/" target="_blank" class="author-name-inline">Dr. Md Siddiqur Rahman</a>
+                        <img src="images/profile.jpg" alt="Dr. Md Siddiqur Rahman" class="author-photo-inline">
+                    </div>
+                </div>
+
+                            <!-- Filter Options -->
+                <div class="story-filters">
+                    <select id="filterCategory">
+                        <option value="">Select Level</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="B1">B1</option>
+                    </select>
+                </div>
+
+            
+                <!-- Search Box -->
+                <input type="text" id="storySearch" placeholder="Search story..." class="story-search">
+
+                <!-- Container for dynamically generated story buttons -->
+                <div class="story-buttons" id="storyButtons"></div>
+            </div>
+
+            <div class="main-content">
+                <div class="controls">
+                    <button class="play-btn" id="prevBtn" onclick="prevSentence()" disabled>Previous</button>
+                    <button class="play-btn" id="playBtn" onclick="playSentence()">Play</button>
+                    <button class="play-btn" id="nextBtn" onclick="nextSentence()">Next</button>
+
+                    <div class="speed-control">
+                        <label for="speed">Speed:</label>
+                        <input type="range" id="speed" min="0.5" max="2" step="0.1" value="1">
+                        <span id="speedValue">1.0x</span>
+                    </div>
+                </div>
+
+                <h2 class="story-title" id="storyTitle">Select your story</h2>
+
+                <div class="story-content" id="storyContent">
+                    <p>Please choose a story from the above list to start learning French.</p>
+                </div>
+
+                <div class="english-translation">
+                    <h3>English Translation:</h3>
+                    <p id="englishTranslation">The English translation will appear here once you select a story.</p>
+                </div>
+
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <footer>
+    <p class="footer-text">© 2026 French Stories. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</footer>
+
+</body>
+</html>
